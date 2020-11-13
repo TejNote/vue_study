@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="ko">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+	<title>구구단</title>
+</head>
+<body>
+<div id="root">
+	<div>{{first}} * {{second}} 는?</div>
+	<form v-on:submit="onSubmitEvent">
+		<input type="number" v-model="value" ref="answer">
+		<button type="submit">입력</button>
+	</form>
+	<div id="result">{{result}}</div>
+
+</div>
+</body>
+<script>
+	const app = new Vue({
+		el: '#root',
+		data: {
+			first: Math.ceil(Math.random() * 9),
+			second: Math.ceil(Math.random() * 9),
+			value: '',
+			result: '',
+		},
+		methods: {
+			onSubmitEvent(e){
+				e.preventDefault();
+				if(this.first * this.second === parseInt(this.value)){
+					this.result = '정답'
+					this.first = Math.ceil(Math.random() * 9);
+					this.second = Math.ceil(Math.random() * 9);
+					this.value = ''
+				}
+				else {
+					this.result = '땡'
+					this.value = ''
+				}
+				this.$refs.answer.focus()
+			},
+		},
+	})
+</script>
+</html>
