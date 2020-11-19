@@ -1,6 +1,8 @@
 .DS_Store
 node_modules
 /dist
+/study/4.반응속도게임/dist/
+/study/3.숫자야구/dist/
 
 
 # local env files
