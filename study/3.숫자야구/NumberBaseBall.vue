@@ -7,7 +7,10 @@
 		</form>
 		<div>시도 : {{ tries.length }}</div>
 		<ul>
-			<li v-for="tryValue in tries"><div>{{ tryValue.inputData }}</div><div>{{ tryValue.result }}</div></li>
+			<li v-for="tryValue in tries" v-bind:key="tryValue.inputData">
+				<div>{{ tryValue.inputData }}</div>
+				<div>{{ tryValue.result }}</div>
+			</li>
 		</ul>
 	</div>
 </template>
